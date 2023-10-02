@@ -9,13 +9,14 @@ namespace Game
         [SerializeField]protected Rigidbody2D rb;
         [SerializeField] private int _mobSpeed = 10;
         [SerializeField]private GameObject player;
-        public int MobSpeed
+        [HideInInspector]public bool playerInZone;
+        private int MobSpeed
         {
             get => _mobSpeed * 10;
             set => _mobSpeed = value;
         }
         
-        protected virtual void Move()
+        public virtual void Move()
         {
             Vector2 dir = player.transform.position - transform.parent.position;
             dir.Normalize();
@@ -28,7 +29,7 @@ namespace Game
         {
             if (other.gameObject == player)
             {
-                Move();
+                playerInZone = true;
             }
         }
         protected void OnTriggerExit2D(Collider2D other)
@@ -36,6 +37,7 @@ namespace Game
             if (other.gameObject == player)
             {
                 rb.velocity = Vector2.zero;
+                playerInZone = false;
             }
         }
     }

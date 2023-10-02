@@ -123,6 +123,22 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!50 &251725129 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7914559405437033355, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
+  m_PrefabInstance: {fileID: 4494295062794810666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &312261001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2349199614769389492, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
+  m_PrefabInstance: {fileID: 4494295062794810666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c63a13a0ef79145ab2817198f34970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &665343028
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +408,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1134534750}
+    - target: {fileID: 2349199614769389492, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1134534750}
     - target: {fileID: 3707462614698425019, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.445298
@@ -432,6 +452,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4644788061873261870, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 251725129}
+    - target: {fileID: 4644788061873261870, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 312261001}
     - target: {fileID: 5293777207052255690, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
       propertyPath: m_Name
       value: Enemi

@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b317427e3d732b74d922934fff0a3b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  movement: {fileID: 0}
   _mobHealth: 10
 --- !u!50 &7914559405437033355
 Rigidbody2D:
@@ -183,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5521661103400270552}
   - component: {fileID: 7037698625571347018}
-  - component: {fileID: 2200058592814354897}
+  - component: {fileID: 2349199614769389492}
   m_Layer: 0
   m_Name: DetectionZone
   m_TagString: Untagged
@@ -241,7 +243,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3.96
---- !u!114 &2200058592814354897
+--- !u!114 &2349199614769389492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,5 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7914559405437033355}
-  _mobSpeed: 10
+  _mobSpeed: 25
   player: {fileID: 0}
+  playerInZone: 0
