@@ -4,18 +4,10 @@ using UnityEngine;
 
 namespace Game
 {
-    public class IInteractable : MonoBehaviour
+    public interface IInteractable
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        void Interact();
+        bool CanInteract();
+        bool CheckPlayer();
     }
 }
