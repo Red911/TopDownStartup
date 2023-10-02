@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!50 &251725129 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7914559405437033355, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
-  m_PrefabInstance: {fileID: 4494295062794810666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &312261001 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2349199614769389492, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
@@ -355,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 1134534750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: -1.7, z: 0}
+  m_LocalPosition: {x: 1.71, y: -2.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -407,7 +402,6 @@ GameObject:
   - component: {fileID: 1678258179}
   - component: {fileID: 1678258178}
   - component: {fileID: 1678258180}
-  - component: {fileID: 1678258181}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -495,42 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1134534750}
-  radiusDetection: 3
---- !u!58 &1678258181
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678258177}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
+  radiusDetection: 2
 --- !u!1001 &4494295062794810666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -587,10 +546,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4644788061873261870, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 251725129}
     - target: {fileID: 4644788061873261870, guid: c85b2e994f013cc4fa765495dd9f55ca, type: 3}
       propertyPath: movement
       value: 

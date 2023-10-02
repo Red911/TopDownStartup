@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
-    public class Mob : MonoBehaviour
+    public class Mob : MonoBehaviour, IDamageable
     {
         [SerializeField]protected Rigidbody2D rb;
         [SerializeField] protected MobMove movement;
@@ -32,13 +32,20 @@ namespace Game
             
         }
 
-        
-        
         protected virtual void Attack()
         {
             
         }
 
-        
+
+        public virtual void Damage(int amount)
+        {
+            MobHealth -= amount;
+        }
+
+        public virtual void Kill()
+        {
+            print("feur");
+        }
     }
 }

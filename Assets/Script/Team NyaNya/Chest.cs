@@ -45,7 +45,13 @@ namespace Game
             }
             return false;
         }
-
+        
+        public void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            
+            Gizmos.DrawWireSphere(transform.position, radiusDetection);
+        }
         
     }
 }
