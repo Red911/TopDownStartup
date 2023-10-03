@@ -10,6 +10,7 @@ namespace Game
     {
         [SerializeField] protected MobMove movement;
         [SerializeField] private int _mobHealth = 10;
+        [SerializeField] protected float coolDown = 3.0f;
 
         private int MobHealth
         {

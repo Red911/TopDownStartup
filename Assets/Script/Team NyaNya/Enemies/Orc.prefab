@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1483221236431421458}
   - component: {fileID: 576398960607957930}
   - component: {fileID: 7914559405437033355}
-  - component: {fileID: 2249582619256805635}
-  m_Layer: 0
+  - component: {fileID: 7805006341430009293}
+  m_Layer: 2
   m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2249582619256805635
+--- !u!114 &7805006341430009293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,12 +169,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5293777207052255690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb40db0bd8b44ce4cb1569881dd2830a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3304975edd7a97543aa10520ddab85be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7914559405437033355}
   movement: {fileID: 2349199614769389492}
-  _mobHealth: 10
+  _mobHealth: 20
+  coolDown: 3
+  player: {fileID: 0}
+  distanceAttack: 3
 --- !u!1 &8540274574080905913
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ GameObject:
   - component: {fileID: 5521661103400270552}
   - component: {fileID: 7037698625571347018}
   - component: {fileID: 2349199614769389492}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

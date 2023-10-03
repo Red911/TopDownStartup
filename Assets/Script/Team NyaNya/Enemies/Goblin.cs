@@ -18,12 +18,7 @@ namespace Game
                 StartCoroutine(AttackCircle());
             }
         }
-
-        protected override void Attack()
-        {
-            
-            
-        }
+        
 
         IEnumerator AttackCircle()
         {
