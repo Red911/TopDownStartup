@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.Assertions.Must;
 using NaughtyAttributes;
 
 public class AchievementManager : MonoBehaviour
@@ -61,6 +60,8 @@ public class AchievementManager : MonoBehaviour
                 return;
 
             achievements = new List<Achievement>();
+
+        // Ajout d'achievements
             achievements.Add(new Achievement("Integer", "le nombre doit être supérieur ou égal à 5", (object o) => intTest >= 5));    
             achievements.Add(new Achievement("La bonne couleur !", "La couleur de l'objet doit être bleu foncé", (object o) => gameObjectTest.GetComponent<SpriteRenderer>().color.Equals(Color.blue)));
 
@@ -84,7 +85,7 @@ public class AchievementManager : MonoBehaviour
 
         foreach (var achievement in achievements)
             {
-                achievement.Completion();              
+                achievement.UpdatedCompletion();              
             }
         }
     }
@@ -107,7 +108,7 @@ public class Achievement
     public string Name { get => name; }
     public bool Achieved { get => achieved; }
 
-    public void Completion()
+    public void UpdatedCompletion()
         {
             if (achieved)
                 return;
