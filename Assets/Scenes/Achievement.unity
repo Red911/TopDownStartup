@@ -152,8 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d27f8ec3185144eab3df69f44b90df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementCount: 0
+  achievementTotalCount: 0
   intTest: 0
+  gameObjectTest: {fileID: 931571410}
+  showParameters: 1
+  nameTheAchievement: Zebi
+  describeTheAchievement: Ta soeur
+  prerequisiteIntToAchieve: 3
 --- !u!4 &165802008
 Transform:
   m_ObjectHideFlags: 0
