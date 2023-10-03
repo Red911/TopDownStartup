@@ -6,7 +6,7 @@ using UnityEngine;
 
     public class EquipmentRepository : MonoBehaviour
     {
-    public List<Equipment> EquipmentList;
+    public static List<Equipment> EquipmentList;
     [Header("Nombre d'équipements")]
     [SerializeField] int listCount;
 
@@ -58,7 +58,7 @@ using UnityEngine;
         EquipmentList = new List<Equipment>();
         EquipmentList.Add(new Equipment("00", "épée", "melee", "neuf", 100, 10));
         EquipmentList.Add(new Equipment("01", "bouclier", "melee", "neuf", 15, 100));
-        EquipmentList.Add(new Equipment("02", "arc", "distance", "usé", 35, 0));
+        EquipmentList.Add(new Equipment("02", "arc", "distance", "usé", 55, 0));
         EquipmentList.Add(new Equipment("03", "baton", "magique", "cassé", 5, 0));
     }
 
