@@ -57,7 +57,8 @@ public class EntityMovement : MonoBehaviour
 
 
         // Physics
-        _rb.AddForce(MoveDirection * _startSpeed * Time.fixedDeltaTime, ForceMode2D.Force);
+        //_rb.AddForce(MoveDirection * _startSpeed * Time.fixedDeltaTime, ForceMode2D.Force);
+        _rb.velocity = MoveDirection;
 
         // Keep old data
         OldVelocity = _rb.velocity;

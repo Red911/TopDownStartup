@@ -20,7 +20,7 @@ namespace Game
 
         public override void ExitState(PlayerController player)
         {
-            if (player.InputMoving) player.Movement.Move(Vector2.zero);
+            if (player.IsMoving) player.Movement.Move(Vector2.zero);
         }
 
         [System.Serializable]

@@ -21,5 +21,23 @@ namespace Game
         {
             player.Movement.CanMove = false;
         }
+
+        [System.Serializable]
+        protected class MovementSettings
+        {
+            [SerializeField] float moveSpeed = 8f;
+            [SerializeField] float dx = 10f;
+
+            [SerializeField] float rotationSpeed = 800f;
+
+            [SerializeField] float turnSmoothTime = 0.1f;
+            [SerializeField] float turnSmoothVelocity;
+        }
+        protected MovementSettings mSettings;
+
+
+
+        public Vector3 moveDir;
+        Vector3 theMove;
     }
 }

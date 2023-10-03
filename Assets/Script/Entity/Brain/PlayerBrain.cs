@@ -108,18 +108,24 @@ public class PlayerBrain : MonoBehaviour
 
     private void UpdateMove(InputAction.CallbackContext obj)
     {
-        _playerController.InputMoving = obj.ReadValue<Vector2>() != Vector2.zero ? true : false;
+        //_playerController.InputMoving = obj.ReadValue<Vector2>() != Vector2.zero ? true : false;
         if (!_movement.CanMove) return;
-        _movement.Move(obj.ReadValue<Vector2>().normalized);
+
+        _playerController.IsMoving = true;
+
+        _playerController.Move = obj.ReadValue<Vector2>();
+        _movement.Move(_playerController.Move.normalized);
     }
     private void StopMove(InputAction.CallbackContext obj)
     {
         _movement.Move(Vector2.zero);
+        _playerController.IsMoving = false;
     }
 
     private void EnterDash(InputAction.CallbackContext obj)
     {
         //_movement.Move(Vector2.zero);
+        _playerController.IsMoving = false;
         _playerController.StateMachine.SwitchState(_playerController.DashState);
     }
 }

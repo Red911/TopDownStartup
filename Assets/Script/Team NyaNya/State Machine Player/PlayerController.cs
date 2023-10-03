@@ -17,19 +17,25 @@ namespace Game
         public PlayerStateMachine StateMachine { get => _stateMachine; set => _stateMachine = value; }
         public NormalState NormalState { get => _normalState; set => _normalState = value; }
         public DashState DashState { get => _dashState; set => _dashState = value; }
+        public WalkState WalkState { get => _walkState; set => _walkState = value; }
 
         [SerializeField, BoxGroup("States")] NormalState _normalState;
         [SerializeField, BoxGroup("States")] DashState _dashState;
-
-
-        bool inputMoving;
-        public bool InputMoving { get => inputMoving; set => inputMoving = value; }
+        [SerializeField, BoxGroup("States")] WalkState _walkState;
 
         #endregion
 
+
+        bool isMoving;
+        public bool IsMoving { get => isMoving; set => isMoving = value; }
+        Vector2 move;
+        public Vector2 Move { get => move; set => move = value; }
+
+        Vector2 moveDir { get; set; }
+
         private void Start()
         {
-            currentState = NormalState;
+            currentState = WalkState;
             currentState.EnterState(this);
         }
 
@@ -37,5 +43,7 @@ namespace Game
         {
             currentState.UpdateState(this);
         }
+
+        public void SetMoveDir(Vector2 mDir) => moveDir = mDir;
     }
 }
