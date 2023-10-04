@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Game
@@ -12,6 +13,8 @@ namespace Game
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private int _mobHealth = 10;
         [SerializeField] protected float coolDown = 3.0f;
+        [SerializeField] private ParticleSystem blood;
+        
 
         private int MobHealth
         {
@@ -40,6 +43,7 @@ namespace Game
             StartCoroutine(DamageFeedBack());
             if (MobHealth <= 0)
             {
+                Instantiate(blood, transform.position, Quaternion.identity);
                 Kill();
             }
         }

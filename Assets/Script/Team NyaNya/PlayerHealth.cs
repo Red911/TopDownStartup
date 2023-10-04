@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ namespace Game
     {
         [SerializeField] private int health = 100;
         [SerializeField] private Slider healthBar;
+        [SerializeField] private ParticleSystem blood;
+        
         private int Health { get => health; set => health = value; }
 
         private void Start()
@@ -22,6 +25,7 @@ namespace Game
         {
             Health -= amount;
             healthBar.value = Health;
+            Instantiate(blood, transform.position, Quaternion.identity);
             if (Health <= 0)
             {
                 Kill();

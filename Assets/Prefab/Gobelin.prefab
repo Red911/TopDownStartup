@@ -177,6 +177,7 @@ MonoBehaviour:
   _sprite: {fileID: 1483221236431421458}
   _mobHealth: 5
   coolDown: 3
+  blood: {fileID: 523519022527514037, guid: 22fe68602bce3fe4da33856c5fdad004, type: 3}
   _attackZone: {fileID: 8661004718971335931}
   _attackSpace: {fileID: 4576393040421226885}
 --- !u!1 &5813021021276656414

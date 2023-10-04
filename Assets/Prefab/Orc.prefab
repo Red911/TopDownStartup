@@ -176,6 +176,7 @@ MonoBehaviour:
   _sprite: {fileID: 1483221236431421458}
   _mobHealth: 20
   coolDown: 3
+  blood: {fileID: 523519022527514037, guid: 22fe68602bce3fe4da33856c5fdad004, type: 3}
   player: {fileID: 0}
   distanceAttack: 3
 --- !u!1 &8540274574080905913
