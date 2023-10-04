@@ -20,16 +20,34 @@ public class AchievementManager : MonoBehaviour
     [SerializeField, ShowIf("showParameters")] string nameTheAchievement;
     [SerializeField, ShowIf("showParameters")] string describeTheAchievement;
     [SerializeField, ShowIf("showParameters")] int prerequisiteIntToAchieve = 2;
+    [SerializeField] int indexToRemove;
+
     [Button]
     public void AddAchievement()
     {
         achievements.Add(new Achievement(nameTheAchievement, describeTheAchievement, (object o) => intTest >= prerequisiteIntToAchieve ));
-        achievementTotalCount++;
+        //achievementTotalCount++;
     }
     [Button]
     public void AchievementDone()
     {
         Debug.Log(achievementsDone);
+    }
+
+    [Button]
+    public void AchievementToRemoveFromId()
+    {
+        Debug.Log(achievements[indexToRemove].Name);
+        achievements.RemoveAt(indexToRemove);
+    }
+
+    [Button]
+
+    public void ReInitializeAchievements()
+    {
+        achievements.Add(new Achievement("Integer", "le nombre doit être supérieur ou égal à 5", (object o) => intTest >= 5));
+        achievements.Add(new Achievement("La bonne couleur !", "La couleur de l'objet doit être bleu foncé", (object o) => gameObjectTest.GetComponent<SpriteRenderer>().color.Equals(Color.blue)));
+        achievements.Add(new Achievement("Tueur d'orc", "Vous avez tué 5 orcs", (object o) => StatsOfPlayer.mobKilledInTotal >= 5));
     }
     public bool AchievementUnlocked(string achievementName)
         {
@@ -60,22 +78,18 @@ public class AchievementManager : MonoBehaviour
                 return;
 
             achievements = new List<Achievement>();
-
+        ///
         // Ajout d'achievements
             achievements.Add(new Achievement("Integer", "le nombre doit être supérieur ou égal à 5", (object o) => intTest >= 5));    
             achievements.Add(new Achievement("La bonne couleur !", "La couleur de l'objet doit être bleu foncé", (object o) => gameObjectTest.GetComponent<SpriteRenderer>().color.Equals(Color.blue)));
             achievements.Add(new Achievement("Tueur d'orc", "Vous avez tué 5 orcs", (object o) => StatsOfPlayer.mobKilledInTotal >= 5));
-
-            for(int i = 0; i < achievements.Count; i++) 
-            {
-                achievementTotalCount++;
-            }
+            
         }
 
         private void Update()
         {
             CheckCompletion();
-
+             achievementTotalCount = achievements.Count;
         }
 
         private void CheckCompletion()

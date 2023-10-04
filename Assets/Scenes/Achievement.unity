@@ -156,9 +156,10 @@ MonoBehaviour:
   intTest: 0
   gameObjectTest: {fileID: 931571410}
   showParameters: 1
-  nameTheAchievement: Zebi
-  describeTheAchievement: Ta soeur
-  prerequisiteIntToAchieve: 3
+  nameTheAchievement: le 7
+  describeTheAchievement: il faut le 7
+  prerequisiteIntToAchieve: 7
+  indexToRemove: 0
 --- !u!4 &165802008
 Transform:
   m_ObjectHideFlags: 0
