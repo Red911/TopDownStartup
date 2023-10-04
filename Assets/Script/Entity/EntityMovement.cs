@@ -64,7 +64,7 @@ public class EntityMovement : MonoBehaviour
         OldVelocity = _rb.velocity;
     }
 
-    public void Move(Vector2 direction) => MoveDirection = direction.normalized;
+    public void Move(Vector2 direction) => MoveDirection = direction;
     public void MoveToward(Transform target) => MoveDirection = (target.position - _rb.transform.position).normalized;
 
     public void AlterSpeed(float factor)

@@ -38,6 +38,7 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField, BoxGroup("Input")] InputActionProperty _moveInput;
     [SerializeField, BoxGroup("Input")] InputActionProperty _attackInput;
     [SerializeField, BoxGroup("Input")] InputActionProperty _dashInput;
+    [SerializeField, BoxGroup("Input")] InputActionProperty _runInput;
 
 
     private void Start()
@@ -50,6 +51,9 @@ public class PlayerBrain : MonoBehaviour
         //_attackInput.action.started += Attack;
         //Dash
         _dashInput.action.performed += EnterDash;
+        _runInput.action.started += UpdateRun;
+        _runInput.action.performed += UpdateRun;
+        _runInput.action.canceled += StopRun;
     }
 
 
@@ -103,6 +107,9 @@ public class PlayerBrain : MonoBehaviour
         _moveInput.action.performed -= UpdateMove;
         _moveInput.action.canceled -= StopMove;
         _dashInput.action.performed -= EnterDash;
+        _runInput.action.started -= UpdateRun;
+        _runInput.action.performed -= UpdateRun;
+        _runInput.action.canceled -= StopRun;
     }
 
 
@@ -114,18 +121,30 @@ public class PlayerBrain : MonoBehaviour
         _playerController.IsMoving = true;
 
         _playerController.Move = obj.ReadValue<Vector2>();
-        _movement.Move(_playerController.Move.normalized);
+        //_movement.Move(_playerController.Move);
     }
     private void StopMove(InputAction.CallbackContext obj)
     {
-        _movement.Move(Vector2.zero);
+        //_movement.Move(Vector2.zero);
         _playerController.IsMoving = false;
     }
 
     private void EnterDash(InputAction.CallbackContext obj)
     {
         //_movement.Move(Vector2.zero);
+        if (!_playerController.CanDash) return;
         _playerController.IsMoving = false;
         _playerController.StateMachine.SwitchState(_playerController.DashState);
+    }
+
+    private void UpdateRun(InputAction.CallbackContext obj)
+    {
+        if (!_movement.CanMove || !_playerController.IsMoving) return;
+        _playerController.StateMachine.SwitchState(_playerController.RunState);
+    }
+    private void StopRun(InputAction.CallbackContext obj)
+    {
+        if (_playerController.CurrentState == _playerController.DashState) return;
+        _playerController.StateMachine.SwitchState(_playerController.WalkState);
     }
 }
