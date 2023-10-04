@@ -85,8 +85,8 @@ public class AchievementManager : MonoBehaviour
         private void Start()
         {
 
-        Achievement achivementDone = GetComponent<Achievement>();
-        achivementDone.popWindow += ShowWindow;
+       // Achievement achivementDone = GetComponent<Achievement>();
+        //achivementDone.popWindow += ShowWindow;
 
         InitializeAchievement();
         }
