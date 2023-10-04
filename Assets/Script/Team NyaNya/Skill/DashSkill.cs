@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    [CreateAssetMenu(fileName = "DashSkill")]
+    [CreateAssetMenu]
     public class DashSkill : Skill
     {
         public float dashVelocity;
