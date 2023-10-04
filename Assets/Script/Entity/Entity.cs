@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField, Required("nop")] Health _health;
+    //[SerializeField, Required("nop")] Health _health;
 
 
 
