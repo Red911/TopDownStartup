@@ -7,7 +7,7 @@ namespace Game
 {
     public class AttackSpace : MonoBehaviour
     {
-        [SerializeField] private GameObject player;
+        public GameObject player;
         [HideInInspector] public bool inZone;
 
         private void OnTriggerEnter2D(Collider2D other)

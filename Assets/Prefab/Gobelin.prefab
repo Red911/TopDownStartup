@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2349199614769389492}
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 1483221236431421458}
   _mobHealth: 5
   coolDown: 3
   _attackZone: {fileID: 8661004718971335931}
@@ -219,7 +219,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5813021021276656414}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

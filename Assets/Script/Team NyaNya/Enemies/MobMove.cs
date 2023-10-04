@@ -28,6 +28,7 @@ namespace Game
         
         protected void OnTriggerEnter2D(Collider2D other)
         {
+            
             if (other.gameObject == player)
             {
                 playerInZone = true;

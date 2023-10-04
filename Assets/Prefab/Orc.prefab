@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2349199614769389492}
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 1483221236431421458}
   _mobHealth: 20
   coolDown: 3
   player: {fileID: 0}

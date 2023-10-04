@@ -22,7 +22,6 @@ namespace Game
                StartCoroutine(CoolDown());
             }
             
-            
         }
         
         protected override void Attack()
@@ -33,7 +32,8 @@ namespace Game
             print(hit.collider.gameObject.name);
             if (hit.collider.gameObject == player)
             {
-                print("hitted");
+                print("hitted player");
+                player.GetComponentInParent<PlayerHealth>().Damage(20);
             }
         }
 
