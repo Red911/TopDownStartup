@@ -27,7 +27,10 @@ namespace Game
             yield return new WaitForSeconds(2f);
             _attackZone.enabled = true;
         }
-        
-        
+
+        public override void Kill()
+        {
+            print("feur the goblin");
+        }
     }
 }
