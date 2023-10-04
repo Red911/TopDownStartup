@@ -15,7 +15,9 @@ namespace Game
         public float radiusDetection = 5.0f;
         [SerializeField] private Animator _animator;
         private int IsOpen = Animator.StringToHash("IsOpen");
-        
+
+        public bool IsOpen1 { get => _isOpen; }
+
         private void Update()
         {
             if (Keyboard.current.eKey.isPressed && CanInteract() && CheckPlayer())
@@ -29,6 +31,7 @@ namespace Game
             _isOpen = true;
             _animator.SetBool(IsOpen, _isOpen);
             print("20 pesos bro");
+            
         }
 
         public bool CanInteract()
