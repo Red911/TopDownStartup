@@ -10,8 +10,7 @@ public class AchievementManager : MonoBehaviour
     {
     public static List<Achievement> achievements;
 
-    public static event Action popWindow;
-
+    
     [SerializeField] int achievementTotalCount = 0;
     public static int achievementsDone = 0;
 
@@ -19,7 +18,9 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] int intTest;
     [SerializeField] GameObject gameObjectTest;
 
-    
+    [Header("Fenêtre d'achievement")]
+    [SerializeField] Text windowTitleTxt;
+    [SerializeField] Text windowDescTxT;
     //---------------
     [Header("Paramètres de l'achievement à ajouter")]
     [SerializeField] bool showParameters;
@@ -78,15 +79,26 @@ public class AchievementManager : MonoBehaviour
                 return false;
 
             result = a.Achieved;
-            popWindow?.Invoke();
             return result;
         }
 
         private void Start()
         {
-        
+
+        Achievement achivementDone = GetComponent<Achievement>();
+        achivementDone.popWindow += ShowWindow;
+
         InitializeAchievement();
         }
+
+    private void ShowWindow()
+    {
+        Debug.Log("Achievement Done");
+        if (achievements == null)
+            return;
+
+       // windowTitleTxt.text = achievements
+    }
      
     private void InitializeAchievement()
         {
@@ -98,7 +110,7 @@ public class AchievementManager : MonoBehaviour
         // Ajout d'achievements
             achievements.Add(new Achievement("Integer", "le nombre doit être supérieur ou égal à 5", (object o) => intTest >= 5));    
             achievements.Add(new Achievement("La bonne couleur !", "La couleur de l'objet doit être bleu foncé", (object o) => gameObjectTest.GetComponent<SpriteRenderer>().color.Equals(Color.blue)));
-            achievements.Add(new Achievement("Tueur d'orc", "Vous avez tué 5 orcs", (object o) => StatsOfPlayer.mobKilledInTotal >= 5));
+            achievements.Add(new Achievement("Tueur d'orc", "Vous avez tué 1 orc", (object o) => StatsOfPlayer.mobKilledInTotal >= 1));
             achievements.Add(new Achievement("Chasseur de trésor", "Vous avez ouvert le coffre", (object o) => GameObject.Find("Chest").GetComponent<Chest>().IsOpen1));  
             //'/
         }
@@ -117,7 +129,7 @@ public class AchievementManager : MonoBehaviour
 
         foreach (var achievement in achievements)
             {
-                achievement.UpdatedCompletion();              
+                achievement.UpdatedCompletion();
             }
         }
     }
@@ -135,30 +147,14 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] string description;
     [SerializeField] Predicate<object> required;
 
-    [SerializeField] bool achieved;
-
-    [SerializeField] GameObject windowTitle;
-    [SerializeField] GameObject windowDesc;
-    [SerializeField] Text windowTitleTxt;
-    [SerializeField] Text windowDescTxT;
+    [SerializeField] bool achieved; 
+    public event Action popWindow;
 
     
     public string Name { get => title; }
     public bool Achieved { get => achieved; }
 
-    /*private void Start()
-    {
-        windowTitle = GameObject.Find("Title");
-        windowDesc = GameObject.Find("Description");
-        windowTitleTxt.text = title;
-        windowDescTxT.text = description;
-    }*/
-    private void ShowAchievementDone()
-    {
-        windowTitleTxt.text = title;
-        windowDescTxT.text = description;
-
-      }
+    
 
     public void UpdatedCompletion()
         {
@@ -166,7 +162,7 @@ public class AchievementManager : MonoBehaviour
                 return;
             if (RequirementsMets())
             {
-                AchievementManager.popWindow += ShowAchievementDone;
+                popWindow?.Invoke();
                 Debug.Log(title + " : " + description);
                 achieved = true;
                 AchievementManager.achievementsDone++;               
