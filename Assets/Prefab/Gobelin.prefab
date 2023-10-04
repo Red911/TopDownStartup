@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 323eb3175f89b5b4b9b97fbe1731165a, type: 3}
   m_Color: {r: 0, g: 0.6509434, b: 0.14023632, a: 1}
   m_FlipX: 0
@@ -174,7 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2349199614769389492}
+  _sprite: {fileID: 0}
   _mobHealth: 5
+  coolDown: 3
   _attackZone: {fileID: 8661004718971335931}
   _attackSpace: {fileID: 4576393040421226885}
 --- !u!1 &5813021021276656414
