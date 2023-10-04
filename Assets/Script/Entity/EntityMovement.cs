@@ -24,6 +24,10 @@ public class EntityMovement : MonoBehaviour
 
     public Alterable<float> CurrentSpeed { get; private set; }
 
+    bool canMove;
+    public bool CanMove { get => canMove; set => canMove = value; }
+
+
     #region EDITOR
 #if UNITY_EDITOR
     private void Reset()
@@ -44,20 +48,23 @@ public class EntityMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // FireEvents
+        
         if (MoveDirection.magnitude < 0.01f && OldVelocity.magnitude > 0.01f)
             _onStopWalking?.Invoke();
         else if (MoveDirection.magnitude > 0.01f && OldVelocity.magnitude < 0.01f)
             _onStartWalking?.Invoke();
         else _onContinueWalking?.Invoke();
 
+
         // Physics
-        _rb.AddForce(MoveDirection * _startSpeed * Time.fixedDeltaTime, ForceMode2D.Force);
+        //_rb.AddForce(MoveDirection * _startSpeed * Time.fixedDeltaTime, ForceMode2D.Force);
+        _rb.velocity = MoveDirection;
 
         // Keep old data
         OldVelocity = _rb.velocity;
     }
 
-    public void Move(Vector2 direction) => MoveDirection = direction.normalized;
+    public void Move(Vector2 direction) => MoveDirection = direction;
     public void MoveToward(Transform target) => MoveDirection = (target.position - _rb.transform.position).normalized;
 
     public void AlterSpeed(float factor)

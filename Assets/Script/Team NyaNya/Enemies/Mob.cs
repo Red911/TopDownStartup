@@ -8,14 +8,9 @@ namespace Game
 {
     public class Mob : MonoBehaviour, IDamageable
     {
-        [SerializeField]protected Rigidbody2D rb;
         [SerializeField] protected MobMove movement;
         [SerializeField] private int _mobHealth = 10;
-
-        private void Start()
-        {
-            rb = GetComponent<Rigidbody2D>();
-        }
+        [SerializeField] protected float coolDown = 3.0f;
 
         private int MobHealth
         {
