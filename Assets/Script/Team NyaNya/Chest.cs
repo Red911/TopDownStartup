@@ -15,15 +15,23 @@ namespace Game
         public float radiusDetection = 5.0f;
         [SerializeField] private Animator _animator;
         private int IsOpen = Animator.StringToHash("IsOpen");
+        [SerializeField]private GameObject message;
 
         public bool IsOpen1 { get => _isOpen; }
 
         private void Update()
         {
-            if (Keyboard.current.eKey.isPressed && CanInteract() && CheckPlayer())
+            if (CanInteract() && CheckPlayer())
             {
-                Interact();
+                message.SetActive(true);
+                if (Keyboard.current.eKey.isPressed)
+                {
+                    Interact();
+                }
             }
+            else
+                message.SetActive(false);  
+            
         }
 
         public void Interact()
@@ -46,7 +54,7 @@ namespace Game
             {
                 if (col[i].gameObject == player)
                 {
-                    print("player here");
+                    
                     return true;
                 }
             }
@@ -59,6 +67,8 @@ namespace Game
             
             Gizmos.DrawWireSphere(transform.position, radiusDetection);
         }
+        
+        
         
     }
 }

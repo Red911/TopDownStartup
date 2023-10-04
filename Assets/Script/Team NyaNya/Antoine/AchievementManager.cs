@@ -84,7 +84,7 @@ public class AchievementManager : MonoBehaviour
 
         private void Start()
         {
-        Debug.Log(StatsOfPlayer.chestOpened);
+        
         InitializeAchievement();
         }
      
