@@ -46,6 +46,7 @@ namespace Game
         public virtual void Kill()
         {
             print("feur");
+            StatsOfPlayer.mobKilledInTotal++;
         }
     }
 }

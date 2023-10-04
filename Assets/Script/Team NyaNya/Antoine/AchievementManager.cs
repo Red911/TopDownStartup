@@ -64,6 +64,7 @@ public class AchievementManager : MonoBehaviour
         // Ajout d'achievements
             achievements.Add(new Achievement("Integer", "le nombre doit être supérieur ou égal à 5", (object o) => intTest >= 5));    
             achievements.Add(new Achievement("La bonne couleur !", "La couleur de l'objet doit être bleu foncé", (object o) => gameObjectTest.GetComponent<SpriteRenderer>().color.Equals(Color.blue)));
+            achievements.Add(new Achievement("Tueur d'orc", "Vous avez tué 5 orcs", (object o) => StatsOfPlayer.mobKilledInTotal >= 5));
 
             for(int i = 0; i < achievements.Count; i++) 
             {
