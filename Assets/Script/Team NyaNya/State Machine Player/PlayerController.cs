@@ -9,7 +9,9 @@ namespace Game
     {
         [SerializeField, BoxGroup("Dependencies")] EntityMovement _movement;
         [SerializeField, BoxGroup("Dependencies")] Transform _spriteTransform;
+        [SerializeField, BoxGroup("Dependencies")] Transform _cursor;
         public Transform SpriteTransform { get => _spriteTransform; set => _spriteTransform = value; }
+        public Transform Cursor { get => _cursor; set => _cursor = value; }
 
         #region States
         [SerializeField, BoxGroup("Dependencies")] PlayerStateMachine _stateMachine;
