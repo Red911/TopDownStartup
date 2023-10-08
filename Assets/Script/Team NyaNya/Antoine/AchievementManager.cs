@@ -14,6 +14,7 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] int achievementTotalCount = 0;
     public static int achievementsDone = 0;
 
+
     // Juste pour tester
     [SerializeField] int intTest;
     [SerializeField] GameObject gameObjectTest;
@@ -78,27 +79,16 @@ public class AchievementManager : MonoBehaviour
             if(a == null)
                 return false;
 
-            result = a.Achieved;
+        result = a.Achieved;
             return result;
         }
 
         private void Start()
-        {
-
-       // Achievement achivementDone = GetComponent<Achievement>();
-        //achivementDone.popWindow += ShowWindow;
-
+        {       
         InitializeAchievement();
         }
 
-    private void ShowWindow()
-    {
-        Debug.Log("Achievement Done");
-        if (achievements == null)
-            return;
-
-       // windowTitleTxt.text = achievements
-    }
+   
      
     private void InitializeAchievement()
         {
@@ -132,7 +122,8 @@ public class AchievementManager : MonoBehaviour
                 achievement.UpdatedCompletion();
             }
         }
-    }
+}
+
     public class Achievement
     {
         public Achievement(string name, string description, Predicate<object> required)
@@ -145,11 +136,11 @@ public class AchievementManager : MonoBehaviour
 
     [SerializeField] string title;
     [SerializeField] string description;
+    [SerializeField] Text txtTitle;
+    [SerializeField] Text txtdescription;
     [SerializeField] Predicate<object> required;
 
     [SerializeField] bool achieved; 
-    public event Action popWindow;
-
     
     public string Name { get => title; }
     public bool Achieved { get => achieved; }
@@ -158,18 +149,20 @@ public class AchievementManager : MonoBehaviour
 
     public void UpdatedCompletion()
         {
+            
             if (achieved)
                 return;
             if (RequirementsMets())
             {
-                popWindow?.Invoke();
+                
                 Debug.Log(title + " : " + description);
                 achieved = true;
                 AchievementManager.achievementsDone++;               
              }
         }
+   
 
-        public bool RequirementsMets()
+    public bool RequirementsMets()
         {
             
             return required.Invoke(null);
