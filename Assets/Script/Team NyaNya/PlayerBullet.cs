@@ -8,6 +8,7 @@ namespace Game
     {
         [SerializeField] Rigidbody2D _rb;
         [SerializeField] float _bulletSpeed;
+        [SerializeField] int _bulletDamage = 1;
         Vector2 bulletDir;
 
         public Vector2 BulletDir { get => bulletDir; set => bulletDir = value; }
@@ -16,6 +17,13 @@ namespace Game
         {
             //if (collision.gameObject.layer == 8) Destroy(gameObject);
             if (collision.gameObject.layer == 8) gameObject.SetActive(false);
+
+            if (collision.gameObject.layer == 7)
+            {
+                collision.GetComponent<Mob>().Damage(_bulletDamage);
+                gameObject.SetActive(false);
+            }
+
         }
 
         private void FixedUpdate()

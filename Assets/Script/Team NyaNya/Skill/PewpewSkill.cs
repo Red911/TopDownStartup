@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Game
@@ -13,6 +14,7 @@ namespace Game
 
         public override void Activate(GameObject parent)
         {
+            if (player.CurrentState == player.RunState) return;
             player = parent.GetComponentInChildren<PlayerController>();
             //GameObject bllt = Instantiate(_bullet, parent.transform);
             //bllt.GetComponent<PlayerBullet>().BulletDir = player.Cursor.position - parent.transform.position;
